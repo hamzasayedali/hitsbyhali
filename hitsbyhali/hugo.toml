@@ -26,3 +26,7 @@ theme = 'mainroad'
   svg = true
   
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
