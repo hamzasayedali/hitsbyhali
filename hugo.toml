@@ -10,7 +10,7 @@ theme = 'mainroad'
 
 
 [Params.logo]
-  image = "/img/haliweblogo.svg"
+  image = "img/haliweblogo.svg"
   title = "Hits By Hali"
   subtitle = "How we're making music"
 
