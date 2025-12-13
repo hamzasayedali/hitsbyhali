@@ -2,17 +2,26 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Hits By Hali'
 theme = 'mainroad'
+sectionPagesMenu = 'main'
 
 [Params]
   # googleFontsLink = "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
   googleFontsLink = "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+  post_meta = ["author", "date", "categories", "translations"]  
   
+[Params.menu]
+  menu="main"
 
-
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = "right"
+  # Enable widgets in given order
+  widgets = ["recent","recent-poetry", "categories", "taglist", "social"]
 [Params.logo]
   image = "img/haliweblogo.svg"
   title = "Hits By Hali"
-  subtitle = "How we're making music"
+  subtitle = "What I've Been Making"
 
 
 [Params.style.vars]
@@ -30,3 +39,19 @@ theme = 'mainroad'
   [caches.images]
     dir = ':cacheDir/images'
 
+[security]
+  enableInlineShortcodes = true
+
+# [menus]
+#   [[menus.main]]
+#     name = 'Home'
+#     pageRef = '/'
+#     weight = 10
+#   [[menus.main]]
+#     name = 'Projects'
+#     pageRef = '/projects'
+#     weight = 20
+#   [[menus.main]]
+#     name = 'Services'
+#     pageRef = '/services'
+#     weight = 30

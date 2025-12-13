@@ -2,14 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/home/</loc>
+  </url><url>
+    <loc>http://localhost:1313/music/</loc>
+    <lastmod>2025-10-09T14:21:15-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/poetry/</loc>
+    <lastmod>2025-06-01T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-11-22T09:55:01-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-11-22T09:55:01-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/i-want-to-contribute-to-a-conversation/</loc>
+    <lastmod>2025-11-22T09:55:01-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/scott-pilgrim/</loc>
+    <lastmod>2025-11-14T15:29:36-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/its-easier-to-do-things-when-youre-not-upset/</loc>
+    <lastmod>2025-11-12T08:51:40-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/importance-of-naming/</loc>
+    <lastmod>2025-11-11T12:42:54-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/one-person-one-thing/</loc>
+    <lastmod>2025-11-11T12:26:28-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/who-im-writing-for/</loc>
+    <lastmod>2025-11-11T10:13:14-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/post-ideas/</loc>
+    <lastmod>2025-11-10T17:22:05-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <lastmod>2025-11-10T12:49:23-05:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/hello/</loc>
     <lastmod>2025-10-19T12:08:10-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-19T12:08:10-04:00</lastmod>
+    <loc>http://localhost:1313/music/here-for-you/</loc>
+    <lastmod>2025-10-09T14:21:15-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-10-19T12:08:10-04:00</lastmod>
+    <loc>http://localhost:1313/poetry/at-the-brink/</loc>
+    <lastmod>2025-06-01T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/poetry/other-than-the-end/</loc>
+    <lastmod>2025-05-01T12:50:07-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/poetry/blossoms/</loc>
+    <lastmod>2025-03-30T13:18:21-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/music/close/</loc>
+    <lastmod>2024-12-10T14:41:39-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/home/customization/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
