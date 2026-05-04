@@ -1,3 +1,13 @@
+.home-hero {
+  display: block;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
 .home-section {
   margin-bottom: 2rem;
 }
