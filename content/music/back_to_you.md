@@ -5,7 +5,11 @@ title = 'Back To You - Work in progress'
 
 +++
 
-# State of the world
+This is the full demo as of March 2026:
+
+{{< youtube ZAAaE_g26hI >}}
+
+---
 
 Back To You is a song I wrote when i was questioning:
 
@@ -15,9 +19,7 @@ Back To You is a song I wrote when i was questioning:
 
 Very melodramatic!
 
-This is the full demo as of March 2026:
 
-{{< youtube WDATH-Z_tQ0 >}}
 
 The vision for the song is very grand and melancholic.
 

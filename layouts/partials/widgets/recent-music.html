@@ -1,0 +1,13 @@
+{{- $recent := where .Site.RegularPages "Section" "music" }}
+{{- if $recent }}
+<div class="widget-recent widget">
+  <h4 class="widget__title">Recent Music</h4>
+  <div class="widget__content">
+    {{ range first 5 $recent }}
+      <div class="widget__item">
+        <a class="widget__link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </div>
+    {{ end }}
+  </div>
+</div>
+{{- end }}

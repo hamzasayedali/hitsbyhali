@@ -1,24 +1,57 @@
 {{ define "main" }}
-<main class="main list" role="main">
-	{{- with .Content }}
-	<div class="content main__content clearfix">
-		{{ . }}
-	</div>
-	{{- end }}
-	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-	{{- range $paginator.Pages }}
-		{{- .Render "summary" }}
-	{{- end }}
-	{{- if and (eq $paginator.TotalNumberOfElements 0) (not $.Content) }}
-		<div class="warning">
-			{{ partial "svg/files.svg" (dict "class" "warning__icon") }}
-			<h3 class="warning__headline">{{ T "noposts_warning_title" | safeHTML }}</h3>
-			<div class="warning__text">
-				<p class="warning__description">{{ T "noposts_warning_description" | safeHTML }}</p>
-				<p class="warning__tip">{{ T "noposts_warning_tip" | safeHTML }}</p>
-			</div>
-		</div>
-	{{ end }}
+<main class="main" role="main">
+
+  
+
+  {{ with .Params.streaming_links }}
+  <section class="home-section">
+    <h3 class="home-section__title">Links to my MUSIC!</h3>
+    <div class="home-links">
+      {{ range . }}
+      <a class="home-links__item btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with .Params.shows }}
+  <section class="home-section">
+    <h3 class="home-section__title">Upcoming Shows</h3>
+    <ul class="home-shows">
+      {{ range . }}
+      <li class="home-shows__item">
+        <span class="home-shows__date">{{ .date }}</span>
+        <span class="home-shows__venue">{{ .venue }}</span>
+        <span class="home-shows__location">{{ .location }}</span>
+        {{ with .ticket_url }}<a class="home-shows__tickets btn" href="{{ . }}" target="_blank" rel="noopener noreferrer">Tickets</a>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with .Params.social_links }}
+  <section class="home-section">
+    <h3 class="home-section__title">Socials</h3>
+    <div class="home-links">
+      {{ range . }}
+      <a class="home-links__item btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="home-section">
+    <h3 class="home-section__title">Recent Posts</h3>
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+    {{ range $paginator.Pages }}
+      {{ .Render "summary" }}
+    {{ end }}
+    {{ if eq $paginator.TotalNumberOfElements 0 }}
+      <p>No posts yet.</p>
+    {{ end }}
+  </section>
+
 </main>
 {{ partial "pagination.html" . }}
 {{ end }}
