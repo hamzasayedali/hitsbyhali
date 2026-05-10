@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main class="main gallery-single" role="main">
+  {{ $img := .Resources.GetMatch "*.{jpg,jpeg,png,webp,gif}" }}
+
+  {{ if $img }}
+    <div class="gallery-single__img-wrap">
+      <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+    </div>
+  {{ end }}
+
+  <div class="gallery-single__info">
+    <h1 class="gallery-single__title">{{ .Title }}</h1>
+    <div class="gallery-single__meta">
+      {{ with .Params.place }}<span class="gallery-single__place">{{ . }}</span>{{ end }}
+      <span class="gallery-single__date">{{ .Date.Format "January 2, 2006" }}</span>
+    </div>
+    {{ with .Params.description }}
+    <p class="gallery-single__description">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  <a class="gallery-single__back" href="{{ .Parent.RelPermalink }}">&larr; Back to Gallery</a>
+</main>
+{{ end }}

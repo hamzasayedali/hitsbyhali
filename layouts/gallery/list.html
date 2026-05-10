@@ -1,0 +1,30 @@
+{{ define "main" }}
+<main class="main gallery-list" role="main">
+  <header class="main__header">
+    <h1 class="main__title">{{ .Title }}</h1>
+  </header>
+
+  <div class="gallery-grid">
+    {{ range .Pages }}
+      {{ $img := .Resources.GetMatch "*.{jpg,jpeg,png,webp,gif}" }}
+      <a class="gallery-card" href="{{ .RelPermalink }}">
+        <div class="gallery-card__img-wrap">
+          {{ if $img }}
+            {{ $thumb := $img.Fill "600x600 Center q85" }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+          {{ else }}
+            <div class="gallery-card__no-img"></div>
+          {{ end }}
+        </div>
+        <div class="gallery-card__meta">
+          <span class="gallery-card__title">{{ .Title }}</span>
+          {{ with .Params.place }}<span class="gallery-card__place">{{ . }}</span>{{ end }}
+          <span class="gallery-card__date">{{ .Date.Format "January 2, 2006" }}</span>
+        </div>
+      </a>
+    {{ else }}
+      <p>No photos yet.</p>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

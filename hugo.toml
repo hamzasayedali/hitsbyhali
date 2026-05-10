@@ -8,7 +8,7 @@ sectionPagesMenu = 'main'
   # googleFontsLink = "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
   googleFontsLink = "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
   post_meta = ["author", "date", "categories", "translations"]
-  customCSS = ["css/home.css"]  
+  customCSS = ["css/home.css", "css/gallery.css"]
   
 [Params.menu]
   menu="main"

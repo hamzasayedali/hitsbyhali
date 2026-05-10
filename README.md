@@ -6,6 +6,37 @@ Blog for music documentation. Writing about thoughts and experiences with making
 
 - to make a new blog/poem/music post,
 
+## adding a gallery photo
+
+Create a new folder inside `content/gallery/` with the photo's slug as the folder name. Put two things in it: an `index.md` and the image file.
+
+```
+content/gallery/
+  my-photo-name/
+    index.md
+    photo.jpg      ← any .jpg, .png, or .webp works
+```
+
+The `index.md` should look like this:
+
+```toml
++++
+title = "Golden Hour at the Park"
+place = "Brooklyn, NY"
+date = 2025-04-20
+draft = false
+description = "It was late April and the light was doing something I hadn't seen before..."
++++
+```
+
+- `title` — shown on the gallery grid card and the detail page
+- `place` — city, venue, wherever the photo was taken
+- `date` — controls the display date; also used for ordering
+- `description` — the paragraph that shows up when someone clicks through to the photo
+- `draft = true` hides the photo from the live site until you're ready
+
+The image file just needs to live in the same folder as `index.md` — the name doesn't matter. Hugo will generate the square thumbnail for the grid automatically.
+
 
 # customizing the home page
 
