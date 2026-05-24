@@ -16,7 +16,7 @@ I was DJing my friend Abbey's Summerween party last night, and during the height
 I think this is in large part because iPod Touch has beautiful, straightforward lyrics. It gives a look into ninajirachis early interior life that reminds you of your own nostalgia and early interior life. The first line:
 
 > "I got a song that nobody knows.  
-> I put it on when no one's home!"
+> I put it on when nobody's home!"
 
 sets the stage for this beautiful story of discovering a source of comfort in life. We all have those songs or TV shows or movies or books or youtube videos that feel extra special to us alone. I like this line because it creates a shared experience of a unsharable feeling. 
 
