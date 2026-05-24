@@ -5,7 +5,7 @@ title = 'I Love Ninajirachi'
 
 +++
 
-After my 2021 introduction to hyperpop via 100gecs, and this playlist by Hank Green (https://open.spotify.com/playlist/3kYdtBMlL6rxtunBEFiBj5?si=8c9ec06f8cea45d8), I told everyone I knew about the genre. It was a fully new experience and it was so energizing. This year, I was introduced to new hyperpop that kept the same energy but added beautiful lyrics. These songs felt like they were written specifically for me, and my love for the genre got reignited. I want to talk about *how* a song has captured my attention: iPod Touch by ninajirachi.
+In 2021 I was introduced to hyperpop via 100 gecs and [this playlist](https://open.spotify.com/playlist/3kYdtBMlL6rxtunBEFiBj5?si=8c9ec06f8cea45d8) by Hank Green. I told everyone I knew about the music because it was a fully new experience which only happens so often. This year, I was introduced to new hyperpop that kept the same energy but with lyrics that blew me away and my love for the genre got reignited. I want to talk about how one of these songs has captured my attention: iPod Touch by ninajirachi.
 
 > "It sounds like loving you is easy but they boosted the bass, it sounds like--"
 
