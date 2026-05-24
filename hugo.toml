@@ -2,11 +2,9 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Hits By Hali'
 theme = 'mainroad'
-sectionPagesMenu = 'main'
 
 [Params]
-  # googleFontsLink = "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
-  googleFontsLink = "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+  googleFontsLink = "local"
   post_meta = ["author", "date", "categories", "translations"]
   customCSS = ["css/home.css", "css/gallery.css"]
   
@@ -27,7 +25,7 @@ sectionPagesMenu = 'main'
 
 [Params.style.vars]
   highlightColor = "#0B9DBB"
-  fontFamilyPrimary = "'Roboto', sans-serif"
+  fontFamilyPrimary = "Charter, 'Bitstream Charter', Georgia, serif"
   
 
 
@@ -43,16 +41,21 @@ sectionPagesMenu = 'main'
 [security]
   enableInlineShortcodes = true
 
-# [menus]
-#   [[menus.main]]
-#     name = 'Home'
-#     pageRef = '/'
-#     weight = 10
-#   [[menus.main]]
-#     name = 'Projects'
-#     pageRef = '/projects'
-#     weight = 20
-#   [[menus.main]]
-#     name = 'Services'
-#     pageRef = '/services'
-#     weight = 30
+[menus]
+  [[menus.main]]
+    name = 'Music'
+    pageRef = '/music'
+    weight = 10
+  [[menus.main]]
+    name = 'Blog'
+    pageRef = '/posts'
+    weight = 20
+  [[menus.main]]
+    name = 'Gallery'
+    pageRef = '/gallery'
+    weight = 30
+  # Poetry hidden from nav until ready
+  # [[menus.main]]
+  #   name = 'Poetry'
+  #   pageRef = '/poetry'
+  #   weight = 40
