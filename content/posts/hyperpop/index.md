@@ -5,7 +5,7 @@ title = 'I Love Ninajirachi'
 
 +++
 
-In 2021 I was introduced to hyperpop via 100 gecs and [this playlist](https://open.spotify.com/playlist/3kYdtBMlL6rxtunBEFiBj5?si=8c9ec06f8cea45d8) by Hank Green. I told everyone I knew about the music because it was a fully new experience which only happens so often. This year, I was introduced to new hyperpop that kept the same energy but with lyrics that blew me away and my love for the genre got reignited. I want to talk about how one of these songs has captured my attention: iPod Touch by ninajirachi.
+In 2021 I was introduced to hyperpop via 100 gecs and [this playlist](https://open.spotify.com/playlist/3kYdtBMlL6rxtunBEFiBj5?si=8c9ec06f8cea45d8) by Hank Green. I told everyone I knew about the music because it was a fully new experience which only happens so often. This year, I was introduced to new hyperpop that kept the same energy but with lyrics that blew me away and my love for the genre got reignited. I want to talk about how one of these songs has captured my attention: iPod Touch by Ninajirachi.
 
 > "It sounds like loving you is easy but they boosted the bass, it sounds like--"
 
@@ -28,7 +28,7 @@ This is the part that almost moves me to TEARS. It describes how an influence on
 
 You can't know if you will be affected at all. Especially as a kid. You're not thinking about that type of thing because you don't yet *have* the concept of being "affected". At least I didn't. I think not knowing adds to the magic. I think thats why "turn a Monday to a memory" is so resonant to me. An ordinary day. This makes every ordinary day even more special. 
 
-That chance for unannounced transformation doesn't go away as you grow up either. Any given Monday your friend Max could show a new song they think you would like. Theres no saying how you will react to it. It could just be another track in your gym playlist, or it could inspire a blog post, or it could fade as fast as it came. You never know.
+That chance for unannounced transformation doesn't go away as you grow up either. Any given Monday your friend Max could play a new song they think you would like. There's no saying how you will react to it. It could just be another track in your gym playlist, or it could inspire a blog post, or it could fade as fast as it came. You never know.
 
 Were the people on the dance floor last night listening to the lyrics? Probably not closely. But I think this song puts its main idea front and center where you can even pick it up in passing. The vocal melodies and performance communicate that idea too. The first line of iPod Touch has a similar melody to the first line of Funkytown by Lipps.
 
