@@ -2,6 +2,22 @@
 Blog for music documentation. Writing about thoughts and experiences with making music and sharing it.
 
 
+# deploying changes
+
+Push your changes to the `main` branch and the site will update automatically:
+
+```bash
+git add .
+git commit -m "your message here"
+git push
+```
+
+GitHub Actions picks up the push, builds the site with Hugo, and deploys it to GitHub Pages. You can watch the progress under the **Actions** tab in the GitHub repo — it usually takes a minute or two.
+
+No manual build step needed.
+
+---
+
 # adding to the site:
 
 - to make a new blog/poem/music post,
