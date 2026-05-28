@@ -30,8 +30,6 @@ Things I like in the demo that contribute to the grand melancholy vibe:
 - The space left between the chorus and first verse, and first verse and second chorus
 - The bassline that pushes it along nicely
 
-There is a lot of polish that needs to happen to make this song releaseable though!
-
 I played this with a band at an open mic on March 9th, and their rendition added a lot to the song. It made me feel very inspired to enhance my production in the demo. I think it could benefit from a lot of the ideas in the live performance:
 - The drums! I love the drummer
 - The dreamy electric keyboard melodies
@@ -40,18 +38,6 @@ I played this with a band at an open mic on March 9th, and their rendition added
 {{< youtube z-04ZYNeZhs >}}
 
 ---
-
-# The help I need:
-
-I would want help from other producers/musicians (RICHARD CARTER perhaps?) with:
-- Fixing individual instruments (the drums, bass line, guitars, etc)
-- Mixing + mastering (either straight up doing it solo, or giving me advice for how to learn to do it myself)
-- Replacing midi instruments with live ones ( a real horns section, real strings section, and real acoustic guitar could add quite a lot to this )
-- VOCALS ADVICE/Production!!! i feel very strongly the desire to sing this song myself with my voice, but I've never been formally trained. I want to fill the song with vocals (like in the intro the 'oh woah woahs' are aspirational). I can do slightly better than these demo vocals, but this is one of the areas i have the least expertise in.
-
-But also, I have only finished one song and feel like there are many questions I don't even know I should be asking. I'd love to hear the perspective of a more experienced musician. I think this demo is in a good place to learn how to polish and enhance a proper release.
-
-Thank you for reading and reach out to me on instagram @hamzasayedali or email hamzasayedali@gmail.com. I'm definitely down to invest some dollars/pounds to make this thing sound good and real, i believe in it as a song deeply!
 
 P.S.
 

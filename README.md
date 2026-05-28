@@ -22,6 +22,11 @@ No manual build step needed.
 
 - to make a new blog/poem/music post,
 
+## adding a new blog post
+```
+hugo new content/posts/your-post-slug/index.md
+```
+
 ## adding a gallery photo
 
 Create a new folder inside `content/gallery/` with the photo's slug as the folder name. Put two things in it: an `index.md` and the image file.
