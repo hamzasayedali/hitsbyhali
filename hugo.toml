@@ -6,7 +6,7 @@ theme = 'mainroad'
 [Params]
   googleFontsLink = "local"
   post_meta = ["author", "date", "categories", "translations"]
-  customCSS = ["css/home.css", "css/gallery.css"]
+  customCSS = ["css/home.css", "css/gallery.css", "css/links.css"]
   
 [Params.menu]
   menu="main"
@@ -54,6 +54,10 @@ theme = 'mainroad'
     name = 'Gallery'
     pageRef = '/gallery'
     weight = 30
+  [[menus.main]]
+    name = 'Links'
+    pageRef = '/links'
+    weight = 50
   # Poetry hidden from nav until ready
   # [[menus.main]]
   #   name = 'Poetry'

@@ -1,0 +1,35 @@
+{{ define "main" }}
+<main class="linktree" role="main">
+  <div class="linktree__inner">
+    <div class="linktree__header">
+      <img src="/img/hamza_speaker.jpg" alt="Hali" class="linktree__avatar">
+      <h1 class="linktree__name">H. Ali</h1>
+      <p class="linktree__bio">Rapper &amp; producer based in NYC</p>
+    </div>
+
+    {{ if .Params.links }}
+      {{ $categories := slice }}
+      {{ range .Params.links }}
+        {{ $categories = $categories | append .category }}
+      {{ end }}
+      {{ $categories = $categories | uniq }}
+
+      {{ range $categories }}
+        {{ $cat := . }}
+        <div class="linktree__group">
+          <h2 class="linktree__group-label">{{ $cat }}</h2>
+          {{ range $.Params.links }}
+            {{ if eq .category $cat }}
+              <a class="linktree__link" href="{{ .url }}" {{ if not (hasPrefix .url "/") }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ .name }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</main>
+{{ end }}
+
+{{ define "sidebar" }}{{/* no sidebar on this page */}}{{ end }}
