@@ -108,6 +108,16 @@
   color: #333;
 }
 
+.gallery-single__description a {
+  font-weight: 700;
+  color: #0B9DBB;
+}
+
+.gallery-single__description a:hover {
+  color: #0B9DBB;
+  text-decoration: underline;
+}
+
 .gallery-single__back {
   font-size: 0.85rem;
   color: #888;

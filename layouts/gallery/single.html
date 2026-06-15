@@ -15,7 +15,7 @@
       <span class="gallery-single__date">{{ .Date.Format "January 2, 2006" }}</span>
     </div>
     {{ with .Params.description }}
-    <p class="gallery-single__description">{{ . }}</p>
+    <div class="gallery-single__description">{{ . | markdownify }}</div>
     {{ end }}
   </div>
 
