@@ -20,4 +20,9 @@ shows:
     venue: pinkFROG Cafe
     location: Williamsburg, Brooklyn, NY
     ticket_url: "https://partiful.com/e/foSVghwwfPZkRalDTCsO?c=qX3MWptX"
+
+featured_songs:
+  - "Run Out Of Time"
+  - "The Person I Became"
+  - "Here For You"
 ---
