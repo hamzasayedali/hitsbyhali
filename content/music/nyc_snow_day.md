@@ -2,6 +2,7 @@
 date = '2026-01-20T22:14:20-05:00'
 draft = false
 title = 'nyc snow day'
+youtube_id = '7YyXiexDn7Y'
 +++
 
 {{< youtube 7YyXiexDn7Y >}}

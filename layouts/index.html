@@ -13,6 +13,37 @@
       <a class="home-links__item btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
       {{ end }}
     </div>
+
+    {{ $allMusic := where $.Site.RegularPages "Section" "music" }}
+    {{ $sorted := sort $allMusic "Date" "desc" }}
+    {{ $featured := slice }}
+    {{ if $.Params.featured_songs }}
+      {{ range $.Params.featured_songs }}
+        {{ $title := . }}
+        {{ range $allMusic }}
+          {{ if eq .Title $title }}
+            {{ $featured = $featured | append . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ $featured = first 3 $sorted }}
+    {{ end }}
+
+    {{ if $featured }}
+    <div class="music-cards">
+      {{ range $featured }}
+      {{ $ytid := .Params.youtube_id }}
+      {{ if $ytid }}
+      <a class="music-card" href="https://www.youtube.com/watch?v={{ $ytid }}" target="_blank" rel="noopener noreferrer">
+        <img class="music-card__thumb" src="https://img.youtube.com/vi/{{ $ytid }}/hqdefault.jpg" alt="{{ .Title }}" loading="lazy">
+        <span class="music-card__title">{{ .Title }}</span>
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+
   </section>
   {{ end }}
 

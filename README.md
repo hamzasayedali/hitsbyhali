@@ -89,6 +89,40 @@ streaming_links:
 
 Same format as social links.
 
+## music video cards
+
+The "Links to my MUSIC!" section on the home page shows thumbnail cards that link to YouTube music videos. By default it automatically displays the **3 most recent** music pages (sorted by date).
+
+To pin specific songs instead, add a `featured_songs` list to `content/_index.md`:
+
+```yaml
+featured_songs:
+  - "Run Out Of Time"
+  - "The Person I Became"
+  - "Back To You - Work in progress"
+```
+
+The titles must match exactly. When `featured_songs` is present it overrides the auto-latest-3 behavior. Remove the list to go back to automatic.
+
+### adding a new music page
+
+```
+hugo new content/music/your-song-slug.md
+```
+
+Open the new file and add `youtube_id` to the front matter — this is what powers the thumbnail and the link:
+
+```toml
++++
+date = '2026-06-12T00:00:00-04:00'
+draft = false
+title = 'Your Song Title'
+youtube_id = 'xxxxxxxxxxx'   ← the ID from the YouTube URL (youtube.com/watch?v=THIS_PART)
++++
+```
+
+Once `youtube_id` is set, the card will appear automatically (it becomes one of the latest 3, or you can add it to `featured_songs`).
+
 ## upcoming shows
 
 ```yaml

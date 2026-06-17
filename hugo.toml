@@ -6,7 +6,8 @@ theme = 'mainroad'
 [Params]
   googleFontsLink = "local"
   post_meta = ["author", "date", "categories", "translations"]
-  customCSS = ["css/home.css", "css/gallery.css", "css/links.css"]
+  customCSS = ["css/home.css", "css/gallery.css", "css/links.css", "css/posts.css"]
+  mainSections = ["posts"]
   
 [Params.menu]
   menu="main"
