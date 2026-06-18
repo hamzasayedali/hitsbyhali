@@ -1,0 +1,12 @@
+{{- if .Site.Menus.main }}
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  {{- $currentNode := . }}
+  {{- range .Site.Menus.main }}
+  {{- if .Name }}
+  <a class="mobile-nav__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} mobile-nav__item--active{{ end }}" href="{{ .URL }}">
+    <span class="mobile-nav__label">{{ .Name }}</span>
+  </a>
+  {{- end }}
+  {{- end }}
+</nav>
+{{- end }}

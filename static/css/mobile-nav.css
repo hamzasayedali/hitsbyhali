@@ -1,0 +1,52 @@
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #2a2a2a;
+    border-top: 2px solid #444;
+    height: 56px;
+    /* respect iPhone home indicator */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mobile-nav__item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-nav__item--active {
+    color: #0B9DBB;
+  }
+
+  .mobile-nav__item:active {
+    color: #fff;
+  }
+
+  /* hide the hamburger top nav */
+  .menu {
+    display: none !important;
+  }
+
+  /* stop content from being hidden behind the bar */
+  .container--outer {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+}
