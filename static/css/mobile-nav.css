@@ -17,6 +17,17 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 
+  /* cover the gap that appears when Chrome's address bar collapses */
+  .mobile-nav::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: #2a2a2a;
+  }
+
   .mobile-nav__item {
     flex: 1;
     display: flex;
