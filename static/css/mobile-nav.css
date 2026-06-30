@@ -1,8 +1,9 @@
-.mobile-nav {
-  display: none;
-}
+.mobile-nav { display: none; }
+.mobile-more-backdrop { display: none; }
+.mobile-more-menu { display: none; }
 
 @media (max-width: 600px) {
+  /* ── Bottom bar ── */
   .mobile-nav {
     display: flex;
     position: fixed;
@@ -13,11 +14,10 @@
     background: #2a2a2a;
     border-top: 2px solid #444;
     height: 56px;
-    /* respect iPhone home indicator */
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  /* cover the gap that appears when Chrome's address bar collapses */
+  /* Covers the gap when Chrome's address bar collapses */
   .mobile-nav::after {
     content: '';
     position: absolute;
@@ -31,6 +31,7 @@
   .mobile-nav__item {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
@@ -43,21 +44,94 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .mobile-nav__item--active {
+  .mobile-nav__item--active { color: #0B9DBB; }
+  .mobile-nav__item:active  { color: #fff; }
+
+  /* Reset button defaults so it matches the link tabs */
+  .mobile-nav__more-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* ── More drawer ──
+     Anchored to bottom:0 so translateY(100%) hides it fully
+     below the viewport. Nav bar (z-index:100) sits on top.
+     padding-bottom keeps the last item clear of the nav bar. */
+  .mobile-more-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .mobile-more-backdrop.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-more-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: #2a2a2a;
+    border-top: 2px solid #444;
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform 0.22s ease;
+  }
+
+  .mobile-more-menu.open {
+    transform: translateY(0);
+  }
+
+  .mobile-more-menu__item {
+    padding: 0.9rem 1.25rem;
+    color: #bbb;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #383838;
+    transition: color 0.15s, background 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-more-menu__item:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-more-menu__item--active {
     color: #0B9DBB;
   }
 
-  .mobile-nav__item:active {
+  .mobile-more-menu__item:active {
     color: #fff;
+    background: #333;
   }
 
-  /* hide the hamburger top nav */
-  .menu {
-    display: none !important;
-  }
-
-  /* stop content from being hidden behind the bar */
+  /* Push page content above the fixed bar */
   .container--outer {
     padding-bottom: calc(56px + env(safe-area-inset-bottom));
   }
+
+  /* Hide desktop horizontal menu */
+  .menu { display: none !important; }
 }

@@ -47,8 +47,9 @@
   </section>
   {{ end }}
 
-  {{ with .Params.shows }}
+  {{ if or .Params.shows .Params.past_shows }}
   <section class="home-section">
+    {{ with .Params.shows }}
     <h3 class="home-section__title">Upcoming Shows</h3>
     <ul class="home-shows">
       {{ range . }}
@@ -60,6 +61,20 @@
       </li>
       {{ end }}
     </ul>
+    {{ end }}
+    {{ with .Params.past_shows }}
+    <h3 class="home-section__title">Past Shows</h3>
+    <ul class="home-shows">
+      {{ range . }}
+      <li class="home-shows__item">
+        <span class="home-shows__date">{{ .date }}</span>
+        <span class="home-shows__venue">{{ .venue }}</span>
+        <span class="home-shows__location">{{ .location }}</span>
+        {{ with .ticket_url }}<a class="home-shows__tickets btn" href="{{ . }}" target="_blank" rel="noopener noreferrer">Recap</a>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
   </section>
   {{ end }}
 

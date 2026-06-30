@@ -1,12 +1,58 @@
-{{- if .Site.Menus.main }}
+{{- $p := . }}
 <nav class="mobile-nav" aria-label="Mobile navigation">
-  {{- $currentNode := . }}
-  {{- range .Site.Menus.main }}
+  <a class="mobile-nav__item{{ if eq $p.Section "music" }} mobile-nav__item--active{{ end }}" href="{{ "/music/" | relURL }}">
+    <span class="mobile-nav__label">Music</span>
+  </a>
+  <a class="mobile-nav__item{{ if eq $p.Section "posts" }} mobile-nav__item--active{{ end }}" href="{{ "/posts/" | relURL }}">
+    <span class="mobile-nav__label">Blog</span>
+  </a>
+  <a class="mobile-nav__item{{ if eq $p.Section "gallery" }} mobile-nav__item--active{{ end }}" href="{{ "/gallery/" | relURL }}">
+    <span class="mobile-nav__label">Gallery</span>
+  </a>
+  <a class="mobile-nav__item{{ if eq $p.RelPermalink "/booking/" }} mobile-nav__item--active{{ end }}" href="{{ "/booking/" | relURL }}">
+    <span class="mobile-nav__label">Booking</span>
+  </a>
+  <button class="mobile-nav__item mobile-nav__more-btn" id="mobile-more-btn" aria-label="More menu" aria-expanded="false">
+    &#9776;
+  </button>
+</nav>
+
+<div class="mobile-more-backdrop" id="mobile-more-backdrop"></div>
+<div class="mobile-more-menu" id="mobile-more-menu" aria-hidden="true">
+  {{- range $p.Site.Menus.main }}
   {{- if .Name }}
-  <a class="mobile-nav__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} mobile-nav__item--active{{ end }}" href="{{ .URL }}">
-    <span class="mobile-nav__label">{{ .Name }}</span>
+  <a class="mobile-more-menu__item{{ if or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }} mobile-more-menu__item--active{{ end }}" href="{{ .URL }}">
+    {{ .Name }}
   </a>
   {{- end }}
   {{- end }}
-</nav>
-{{- end }}
+</div>
+
+<script>
+(function () {
+  var btn      = document.getElementById('mobile-more-btn');
+  var menu     = document.getElementById('mobile-more-menu');
+  var backdrop = document.getElementById('mobile-more-backdrop');
+  if (!btn || !menu || !backdrop) return;
+
+  function openMenu() {
+    menu.classList.add('open');
+    backdrop.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    backdrop.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+  }
+
+  btn.addEventListener('click', function () {
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  backdrop.addEventListener('click', closeMenu);
+})();
+</script>

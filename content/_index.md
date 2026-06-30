@@ -16,6 +16,9 @@ streaming_links:
     url: https://music.apple.com/us/artist/h-ali/1829181301
 
 shows:
+
+
+past_shows:
   - date: "June 26, 2026"
     venue: pinkFROG Cafe
     location: Williamsburg, Brooklyn, NY

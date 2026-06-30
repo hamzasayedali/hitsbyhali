@@ -56,13 +56,14 @@ theme = 'mainroad'
     pageRef = '/gallery'
     weight = 30
   [[menus.main]]
-    name = 'Links'
-    pageRef = '/links'
-    weight = 50
-  [[menus.main]]
     name = 'Booking'
     pageRef = '/booking'
+    weight = 50
+  [[menus.main]]
+    name = 'Links'
+    pageRef = '/links'
     weight = 60
+  
   # Poetry hidden from nav until ready
   # [[menus.main]]
   #   name = 'Poetry'
