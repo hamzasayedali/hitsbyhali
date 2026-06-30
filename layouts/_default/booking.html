@@ -1,0 +1,108 @@
+{{ define "main" }}
+<main class="main" role="main">
+  <div class="booking-page">
+
+    <div id="booking-success" class="booking-success">
+      <img src="{{ "img/hamza-writing.png" | relURL }}" alt="Hamza" class="booking-success__img">
+      <h2>Request sent!</h2>
+      <p>Thank you for booking. I'll reach out via email to confirm the session!</p>
+    </div>
+
+    <div id="booking-form-wrap">
+      <h1>Book a Session</h1>
+      <p class="booking-subtitle">Reach out via the form and I'll follow up with you.</p>
+
+      <!-- Step 1: Service -->
+      <div id="step-service" class="booking-step active">
+        <p class="step-prompt">Session Types</p>
+        <div class="service-cards">
+          <button class="service-card" data-service="Music Production">
+            <span class="service-card__name">Music Production</span>
+            <span class="service-card__desc">Work on music with me! Song writing, instrumental production, recording, mixing, and mastering.</span>
+          </button>
+          <button class="service-card" data-service="DJing">
+            <span class="service-card__name">DJing</span>
+            <span class="service-card__desc">Book me to DJ a party, show, private event, corporate happy hour, picnic, cafe, whatever! Starting rate is $50/hour.</span>
+          </button>
+          <button class="service-card" data-service="General Inquiry" data-general="true">
+            <span class="service-card__name">General / Other</span>
+            <span class="service-card__desc">Contact me with any questions, requests for collaborations, thoughts on the music, or anything else!</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2a: Calendar + slots (Music Production, DJing, etc.) -->
+      <div id="step-date" class="booking-step">
+        <button class="step-back" data-target="step-service">← Back</button>
+        <p class="step-context" id="ctx-service"></p>
+        <p class="step-prompt">Pick a date</p>
+
+        <div class="cal">
+          <div class="cal__header">
+            <button id="cal-prev" type="button" class="cal__nav">&#8249;</button>
+            <span id="cal-month-label" class="cal__month"></span>
+            <button id="cal-next" type="button" class="cal__nav">&#8250;</button>
+          </div>
+          <div id="cal-grid" class="cal__grid"></div>
+          <p id="cal-loading" class="slots-msg" style="display:none">Loading availability…</p>
+          <p id="cal-error"   class="slots-msg slots-msg--error" style="display:none">Couldn't load availability.</p>
+        </div>
+
+        <div id="slots-wrap" class="slots-wrap">
+          <p id="slots-loading" class="slots-msg" style="display:none">Loading times…</p>
+          <p id="slots-none"    class="slots-msg" style="display:none">No slots available on this date.</p>
+          <p id="slots-error"   class="slots-msg slots-msg--error" style="display:none">Couldn't load times — try again.</p>
+          <div id="slots-grid" class="slots-grid"></div>
+        </div>
+      </div>
+
+      <!-- Step 2b: Simple date (General Inquiry) -->
+      <div id="step-date-simple" class="booking-step">
+        <button class="step-back" data-target="step-service">← Back</button>
+        <p class="step-context" id="ctx-service-simple"></p>
+        <p class="step-prompt">Do you have a date in mind? <span class="optional">(optional)</span></p>
+        <input type="date" id="f-date-simple" class="date-input">
+        <button type="button" id="btn-continue-general" class="booking-submit" style="margin-top:1rem">Continue</button>
+      </div>
+
+      <!-- Step 3: Contact form -->
+      <div id="step-form" class="booking-step">
+        <button class="step-back" data-target="step-date">← Back</button>
+        <div class="booking-summary">
+          <span id="sum-service"></span>
+          <span id="sum-sep-date" class="booking-summary__dot">·</span>
+          <span id="sum-date"></span>
+          <span id="sum-sep-time" class="booking-summary__dot">·</span>
+          <span id="sum-time"></span>
+        </div>
+
+        <form id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Name</label>
+              <input id="f-name" type="text" placeholder="Your name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email</label>
+              <input id="f-email" type="email" placeholder="your@email.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Phone <span class="optional">(optional)</span></label>
+            <input id="f-phone" type="tel" placeholder="+1 (555) 000-0000" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="f-message">Tell me about the session</label>
+            <textarea id="f-message" placeholder="What are you working on? Any references, goals, or details that would help." required></textarea>
+          </div>
+          <button id="booking-submit" type="submit" class="booking-submit">Send Request</button>
+          <p id="booking-error" class="booking-error">Something went wrong — please try again.</p>
+        </form>
+      </div>
+
+    </div><!-- /booking-form-wrap -->
+  </div><!-- /booking-page -->
+</main>
+
+<script src="{{ "js/booking.js" | relURL }}"></script>
+{{ end }}

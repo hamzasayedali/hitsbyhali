@@ -1,0 +1,397 @@
+.booking-page {
+  max-width: 680px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.booking-page h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.booking-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* ── Steps ── */
+.booking-step {
+  display: none;
+}
+
+.booking-step.active {
+  display: block;
+}
+
+.step-back {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: #888;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.step-back:hover {
+  color: #333;
+}
+
+.step-context {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #0B9DBB;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.step-prompt {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* ── Service cards ── */
+.service-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  cursor: pointer;
+  background: #fff;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+
+.service-card:hover {
+  border-color: #0B9DBB;
+  box-shadow: 0 2px 8px rgba(11,157,187,0.12);
+}
+
+.service-card.selected {
+  border-color: #0B9DBB;
+  background: #f0fafc;
+}
+
+.service-card__name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.service-card__desc {
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ── Simple date input (General Inquiry) ── */
+.date-input {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #222;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #0B9DBB;
+}
+
+/* ── Calendar ── */
+.cal {
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+
+.cal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.cal__nav {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #888;
+  padding: 0.15rem 0.4rem;
+  font-family: inherit;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.cal__nav:hover { color: #0B9DBB; }
+
+.cal__month {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal__day-label {
+  text-align: center;
+  font-size: 0.65rem;
+  color: #aaa;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+}
+
+.cal__day {
+  position: relative;
+  text-align: center;
+  padding: 0.45rem 0 0.55rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  color: #ddd;
+  line-height: 1;
+}
+
+.cal__day--past {
+  color: #ccc;
+}
+
+.cal__day--available {
+  color: #222;
+  cursor: pointer;
+}
+
+.cal__day--available:hover {
+  background: #f0fafc;
+  color: #0B9DBB;
+}
+
+.cal__day--selected {
+  background: #0B9DBB !important;
+  color: #fff !important;
+}
+
+.cal__day--selected .cal__dot {
+  background: rgba(255,255,255,0.7);
+}
+
+.cal__dot {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #0B9DBB;
+}
+
+/* ── Time slots ── */
+.slots-wrap {
+  min-height: 2rem;
+}
+
+.slots-msg {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.slots-msg--error {
+  color: #c0392b;
+}
+
+.slots-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.slot-btn {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.slot-btn:hover {
+  border-color: #0B9DBB;
+}
+
+.slot-btn.selected {
+  border-color: #0B9DBB;
+  background: #0B9DBB;
+  color: #fff;
+}
+
+/* ── Booking summary strip ── */
+.booking-summary {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0B9DBB;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.booking-summary__dot {
+  color: #ccc;
+}
+
+/* ── Form fields ── */
+#booking-form {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  color: #333;
+}
+
+.form-group .optional {
+  font-weight: 400;
+  color: #999;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #222;
+  background: #fff;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0B9DBB;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.booking-submit {
+  margin-top: 0.5rem;
+  width: 100%;
+  background: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.booking-submit:hover {
+  background: #0B9DBB;
+}
+
+.booking-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.booking-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+  display: none;
+}
+
+/* ── Success ── */
+.booking-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.booking-success.visible {
+  display: block;
+}
+
+.booking-success__img {
+  display: block;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 1.25rem;
+}
+
+.booking-success h2 {
+  margin-bottom: 0.5rem;
+}
+
+.booking-success p {
+  color: #666;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .service-cards,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
