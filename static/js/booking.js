@@ -223,30 +223,27 @@ var FORMEASY_URL = 'https://script.google.com/macros/s/AKfycbxpoyrCmW8QeykaSghU8
     btn.textContent = 'Sending…';
 
     var data = {
-      service: state.service,
-      date: state.date,
-      time: state.time,
+      action: 'submit',
+      service: state.service || '',
+      date: state.date || '',
+      time: state.time || '',
       name: document.getElementById('f-name').value.trim(),
       email: document.getElementById('f-email').value.trim(),
       phone: document.getElementById('f-phone').value.trim(),
       message: document.getElementById('f-message').value.trim(),
     };
 
-    fetch(FORMEASY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(data),
-    })
-      .then(function (res) { return res.json(); })
-      .then(function () {
-        document.getElementById('booking-form-wrap').style.display = 'none';
-        document.getElementById('booking-success').classList.add('visible');
-      })
-      .catch(function () {
-        errorEl.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'Send Request';
-      });
+    // Use JSONP (script-tag GET) instead of fetch POST so it works in
+    // restrictive in-app browsers (e.g. Facebook Messenger) that block
+    // cross-origin fetch but allow script tag requests.
+    jsonp(FORMEASY_URL, data, function () {
+      document.getElementById('booking-form-wrap').style.display = 'none';
+      document.getElementById('booking-success').classList.add('visible');
+    }, function () {
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Send Request';
+    });
   });
 
   // ── JSONP helper ──────────────────────────────────────────

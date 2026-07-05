@@ -1,0 +1,19 @@
++++
+date = '2026-07-05T00:00:00-04:00'
+draft = false
+title = 'My Guiding Ideas About Work'
+
++++
+
+July 5th, 2026
+
+I put together this blog post to track the ideas I learn and internalize as I do more work on music (and more broadly building my life) and I will add to it as I learn and grow. The list is more of a reminder than an instruction guide though. I've read so many posts like this one in the past, but I find that ideas about productivity and confidence and work don't stick for me unless I've experienced them firsthand. I think they can still be useful to readers. But that being said, the target audience is firstly me, Hamza.
+
+1. I want to **focus on documenting and sharing my work** as much as possible. Because I think communicating ideas, especially ones that are based on real things that you did, can be so empowering to the people who read them. Also because they help me focus on what needs to be included in a complete thought, and not just rambled ideas. Finishing songs/writing is one of the least common activities so it is important to practice it.
+2. **I am scared that I am** going into a field that is dependent on **building myself as the product** (music production for other people/making music myself). This fear is probably because it ties your financial success and judgement from others to your self-worth as a person. In reality though, it is important to get through this fear because A. at the end of the day, all jobs are somewhat tied to building yourself as the product (building your skillset, specialties, reputation), and B. if you are excited about this prospect, its great motivation to learn and improve. **Its okay to make mistakes and not be perfect every time.** That doesn’t mean you’ll never succeed. But you will succeed more often. Even on the spot.
+3. **You don’t need infinite prep time.** This is a coping mechanism I’ve developed in finding comfort in long deadlines because I could theoretically cover all my bases and make sure everything is perfect. In practice, i never really use all this time to prepare. I can be more efficient and effective if I don’t snuggle into the comfort of a long deadline and keep myself working and pushing with the expectation that I will perform and succeed “on the spot”. This doesn’t mean I shouldn’t practice/prepare, but it means I don’t need to wait till the time is right to start a project or release something or reach out. I gain the most from acting on good ideas, not simmering in them.
+4. **Capture ideas and projects into something real before they pass by**. There was a story (i don’t know if it was real) about how Michael Jackson used to record/write down song ideas as soon as he got them because he was scared God would give them to Prince if he waited too long. He learned this because when he procrastinated on a song idea Prince ended up “stealing” it and writing Purple Rain. I don’t have a nemesis who will steal my ideas, but I do find it difficult to get back into the headspace to share a thought/project/song vibe if too much time has passed.
+5. **It doesn’t have to be perfect, it just has to happen.** My friend from university said this as she was struggling with motivation to pack up her dorm room when we were moving out one year. The wording has stuck with me, but I haven’t fully internalized it. Sometimes I just don’t do things because I think I can’t do them all the way or in the way I want to. This can be so stifling because it stops all progress before it can even be judged by the world. I think its better to write an article and give the world a chance to decide if it was good or not rather than not even affording that option. Cleaning the bathroom half-assedly is better than not doing it at all and you learn so much more from that too. (The caveat is that eventually you have to do things whole-assedly. You simply cannot be okay with half-assing forever).
+
+
+
