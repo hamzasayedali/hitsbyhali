@@ -6,7 +6,7 @@ theme = 'mainroad'
 [Params]
   googleFontsLink = "local"
   post_meta = ["author", "date", "categories", "translations"]
-  customCSS = ["css/home.css", "css/gallery.css", "css/links.css", "css/posts.css", "css/mobile-nav.css", "css/booking.css"]
+  customCSS = ["css/global.css", "css/home.css", "css/gallery.css", "css/links.css", "css/posts.css", "css/mobile-nav.css", "css/booking.css"]
   mainSections = ["posts"]
   
 [Params.menu]
@@ -20,14 +20,14 @@ theme = 'mainroad'
   widgets = ["recent-music", "recent","recent-poetry", "categories", "taglist", "social"]
 [Params.logo]
   image = "img/haliweblogo.svg"
-  title = "Hits By Hali"
+  title = "Hits By H. Ali"
   subtitle = "What I've Been Making"
 
 
 [Params.style.vars]
   highlightColor = "#0B9DBB"
-  fontFamilyPrimary = "Charter, 'Bitstream Charter', Georgia, serif"
-  
+  fontFamilyPrimary = "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif"
+
 
 
 [params.meta]

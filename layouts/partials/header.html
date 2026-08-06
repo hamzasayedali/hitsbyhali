@@ -1,0 +1,12 @@
+<header class="header">
+	<div class="filmreel-banner">
+		<div class="filmreel-banner__track">
+			{{ range seq 8 }}
+			<img class="filmreel-banner__img" src="{{ "img/filmreel.png" | relURL }}" alt="{{ if eq . 1 }}Hits By H. Ali film reel banner{{ end }}"{{ if ne . 1 }} aria-hidden="true"{{ end }}>
+			{{ end }}
+		</div>
+	</div>
+	<div class="container header__container">
+		{{ partial "menu.html" . }}
+	</div>
+</header>

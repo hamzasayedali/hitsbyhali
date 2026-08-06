@@ -1,0 +1,60 @@
+/* Didot/Bodoni MT (the primary font stack) are system fonts that typically
+ * only ship Regular + Bold, no in-between weight. 500 falls back to Regular
+ * per the CSS font-matching spec, so it takes 600+ to actually render bolder. */
+body {
+  font-weight: 600;
+}
+
+/* Full-width layout: theme's default caps everything at 1080px and centers
+ * it as a floating card. Drop the cap and the card styling so the page
+ * fills the browser instead. Small side padding keeps content off the
+ * viewport edge without reintroducing the boxed look. */
+.container {
+  max-width: none;
+}
+
+.container--outer {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Filmstrip header banner: an infinitely-scrolling marquee.
+ * The track holds 8 identical copies of the strip (an even number so
+ * translating exactly -50% of the track equals a whole number of copy
+ * widths -- that's what makes the loop restart invisible). 8 copies
+ * keeps the strip wide enough to fill even very large/ultrawide screens
+ * without a gap ever showing during the animation. The image is sized by
+ * height only so it stays legible instead of shrinking to a sliver on
+ * narrow screens. */
+.filmreel-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+}
+
+.filmreel-banner__track {
+  display: flex;
+  width: max-content;
+  animation: filmreel-scroll 180s linear infinite;
+}
+
+.filmreel-banner__img {
+  height: clamp(60px, 10vw, 150px);
+  width: auto;
+  flex: none;
+  display: block;
+}
+
+@keyframes filmreel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filmreel-banner__track {
+    animation: none;
+  }
+}
+
