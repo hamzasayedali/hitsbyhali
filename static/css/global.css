@@ -41,7 +41,7 @@ body {
 }
 
 .filmreel-banner__img {
-  height: clamp(60px, 10vw, 150px);
+  height: clamp(80px, 13vw, 200px);
   width: auto;
   flex: none;
   display: block;

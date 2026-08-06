@@ -7,6 +7,7 @@ theme = 'mainroad'
   googleFontsLink = "local"
   post_meta = ["author", "date", "categories", "translations"]
   customCSS = ["css/global.css", "css/home.css", "css/gallery.css", "css/links.css", "css/posts.css", "css/mobile-nav.css", "css/booking.css"]
+  customJS = ["js/filmreel.js"]
   mainSections = ["posts"]
   
 [Params.menu]
