@@ -31,16 +31,24 @@
     {{ end }}
 
     {{ if $featured }}
-    <div class="music-cards">
-      {{ range $featured }}
-      {{ $ytid := .Params.youtube_id }}
-      {{ if $ytid }}
-      <a class="music-card" href="https://www.youtube.com/watch?v={{ $ytid }}" target="_blank" rel="noopener noreferrer">
-        <img class="music-card__thumb" src="https://img.youtube.com/vi/{{ $ytid }}/hqdefault.jpg" alt="{{ .Title }}" loading="lazy">
-        <span class="music-card__title">{{ .Title }}</span>
-      </a>
-      {{ end }}
-      {{ end }}
+    <div class="music-carousel">
+      <button class="music-carousel__btn music-carousel__btn--prev" type="button" aria-label="Previous songs">
+        <img src="{{ "img/LastButton.png" | relURL }}" alt="" width="339" height="339">
+      </button>
+      <div class="music-cards">
+        {{ range $featured }}
+        {{ $ytid := .Params.youtube_id }}
+        {{ if $ytid }}
+        <a class="music-card" href="https://www.youtube.com/watch?v={{ $ytid }}" target="_blank" rel="noopener noreferrer">
+          <img class="music-card__thumb" src="https://img.youtube.com/vi/{{ $ytid }}/hqdefault.jpg" alt="{{ .Title }}" loading="lazy">
+          <span class="music-card__title">{{ .Title }}</span>
+        </a>
+        {{ end }}
+        {{ end }}
+      </div>
+      <button class="music-carousel__btn music-carousel__btn--next" type="button" aria-label="Next songs">
+        <img src="{{ "img/NextButton.png" | relURL }}" alt="" width="339" height="339">
+      </button>
     </div>
     {{ end }}
 
