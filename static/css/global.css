@@ -58,3 +58,45 @@ body {
   }
 }
 
+/* Nav bar sticks to the top of the viewport while scrolling. Scoped to the
+ * theme's own >=767px breakpoint, since below that .menu is hidden in favor
+ * of the site's fixed bottom mobile nav (see mobile-nav.css) -- nothing to
+ * stick there. --nav-height is shared with the sidebar rule below so the
+ * sidebar's sticky offset always clears the nav instead of being covered
+ * by it. */
+:root {
+  --nav-height: 47px;
+}
+
+/* position:sticky is bounded by the sticky element's containing block (its
+ * parent). .header only wraps the banner + nav, so it's too short to give
+ * the nav any room to actually stick -- display:contents removes .header's
+ * own box from the layout tree (keeping the element for semantics/a11y),
+ * so the nav's containing block becomes the full-page wrapper instead. */
+.header {
+  display: contents;
+}
+
+@media screen and (min-width: 767px) {
+  .header__container {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #2a2a2a;
+  }
+}
+
+/* Sidebar pins in place while the main content scrolls; if the sidebar's
+ * own content is taller than the viewport, it scrolls independently
+ * instead of getting cut off. Only applies at the desktop breakpoint --
+ * below 768px the theme stacks the sidebar under the content (see its own
+ * max-width:767px query), where a pinned/clipped sidebar wouldn't make sense. */
+@media (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: calc(var(--nav-height) + 20px);
+    max-height: calc(100vh - var(--nav-height) - 40px);
+    overflow-y: auto;
+  }
+}
+

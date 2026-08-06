@@ -1,5 +1,5 @@
 (function () {
-  var DURATION = 40; // must match the animation-duration in global.css
+  var DURATION = 180; // must match the animation-duration in global.css
   var track = document.querySelector(".filmreel-banner__track");
   if (!track) return;
 
