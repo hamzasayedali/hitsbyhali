@@ -1,11 +1,197 @@
-.home-hero {
-  display: block;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 12px;
+/* Only Black and Regular are used on the site, so only those two are
+ * declared here even though the family has 9 weights + italics. */
+@font-face {
+  font-family: "AF Sobremesa Black";
+  src: url("/fonts/AFSobremesa/AFSobremesa-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AF Sobremesa";
+  src: url("/fonts/AFSobremesa/AFSobremesa-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hero "ticket stub": fixed-width barcode/QR panel and photo panel on the
+ * ends, flexible content panel in the middle. The side panels stay close
+ * to their set width across screen sizes (a shrunk QR code stops scanning
+ * cleanly, so it shouldn't be squeezed much); the middle panel is the one
+ * that actually resizes, via flex + its own responsive type sizing. */
+.hero-ticket {
+  display: flex;
+  min-height: clamp(120px, 16vw, 170px);
   margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.hero-ticket__panel {
+  display: flex;
+  box-sizing: border-box;
+  /* Concave "scooped" corners (bitten inward, not rounded outward).
+   * border-radius can't do this -- instead each corner gets its own
+   * radial-gradient "eraser": transparent inside the circle (cut away),
+   * opaque outside it (kept). Each circle is centered exactly ON the
+   * box's true corner point (not inset by the radius), so only the
+   * inward-facing quarter of it actually falls inside the box -- that's
+   * what makes it a bite out of the corner instead of a floating dot.
+   * The 4 gradients each cover a 51%x51% quadrant anchored to one
+   * corner, so together they tile the whole box with a hair of overlap
+   * and no seam. */
+  --notch: 6px;
+  /* Shared dash pattern for the panel-seam dividers below: 2px wide,
+   * 10px dash / 6px gap. */
+  --dash: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0,
+    rgba(0, 0, 0, 1) 10px,
+    transparent 10px,
+    transparent 16px
+  );
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at 0 0, transparent 98%, #000 100%) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 0, transparent 98%, #000 100%) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 0 100%, transparent 98%, #000 100%) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 100%, transparent 98%, #000 100%) 100% 100% / 51% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at 0 0, transparent 98%, #000 100%) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 0, transparent 98%, #000 100%) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 0 100%, transparent 98%, #000 100%) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 100%, transparent 98%, #000 100%) 100% 100% / 51% 51% no-repeat;
+}
+
+.hero-ticket__panel--left {
+  flex: 0 0 auto;
+  width: fit-content;
+  position: relative;
+  background-color: #bbb7b1;
+  background-image: var(--dash);
+  background-size: 2px 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.35rem, 1.5vw, 0.7rem);
+  padding: 0.6rem;
+}
+
+/* Barcode and QR both grow to fill the panel's full height (whatever
+ * that ends up being -- it's driven by the ticket's overall height, not
+ * a fixed number), rather than sizing to a fixed width. Each is set to
+ * width:auto with its height flex-grown, so the browser derives its
+ * width from its own intrinsic aspect ratio at that resolved height.
+ * The flex-grow values are each image's own height/width ratio
+ * (barcode 202/83, qr 100/101) -- with flex-basis:0 splitting the
+ * available height in exactly those proportions, the two intrinsic
+ * ratios cancel out and both images land on the same width by
+ * construction, while together exactly filling the panel's height. */
+.hero-ticket__barcode,
+.hero-ticket__qrcode {
+  width: auto;
+  min-height: 0;
+  /* Without a cap this can runaway on narrow screens: less room forces
+   * the title/tags to wrap, which grows the row height, which grows
+   * these (since their width is derived from height), which squeezes
+   * the middle panel further, wrapping it more. This ceiling breaks
+   * that feedback loop. */
+  max-width: 56px;
+}
+
+.hero-ticket__barcode {
+  flex: 2.4337 0 0;
+}
+
+.hero-ticket__qrcode {
+  flex: 0.9901 0 0;
+}
+
+.hero-ticket__panel--mid {
+  flex: 1 1 auto;
+  min-width: 0;
+  position: relative;
+  background-color: #bbb7b1;
+  background-image: var(--dash);
+  background-size: 2px 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(0.3rem, 1.2vw, 0.6rem);
+  padding: 0.75rem clamp(0.75rem, 3vw, 1.5rem);
+  font-family: "AF Sobremesa", Charter, "Bitstream Charter", serif;
+}
+
+.hero-ticket__title {
+  margin: 0;
+  font-family: "AF Sobremesa Black", Didot, "Bodoni MT", serif;
+  font-size: clamp(1rem, 4.5vw, 2.1rem);
+  line-height: 1;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+}
+
+.hero-ticket__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.hero-ticket__tag {
+  padding: 0.15rem 0.6rem;
+  font-size: clamp(0.65rem, 1.6vw, 0.8rem);
+  font-weight: 700;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.hero-ticket__art {
+  display: block;
+  width: 100%;
+  height: clamp(36px, 9vw, 80px);
+  object-fit: cover;
+}
+
+.hero-ticket__caption {
+  margin: 0;
+  font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-ticket__panel--right {
+  flex: 0 0 clamp(110px, 30vw, 200px);
+  position: relative;
+}
+
+/* Crinkled-paper texture over the WHOLE panel -- content included, not
+ * just the background. A ::before overlay positioned on top of
+ * everything (rather than background-blend-mode, which only blends a
+ * panel's own background layers and leaves its children -- the barcode,
+ * title, photo, etc. -- untouched), multiplied so its white/bright areas
+ * stay invisible and only the crease shadows darken what's underneath. */
+.hero-ticket__panel--left::before,
+.hero-ticket__panel--mid::before,
+.hero-ticket__panel--right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/img/crinkle-web.jpg");
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.hero-ticket__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .home-section {

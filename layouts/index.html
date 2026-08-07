@@ -1,9 +1,25 @@
 {{ define "main" }}
 <main class="main" role="main">
 
-  <img src="/img/hamza_speaker.jpg" alt="Hamza" class="home-hero" style="display:block;width:180px;height:180px;object-fit:cover;border-radius:12px;margin-bottom:1.5rem;">
-
-
+  <div class="hero-ticket">
+    <div class="hero-ticket__panel hero-ticket__panel--left">
+      <img class="hero-ticket__barcode" src="{{ "img/barcode.png" | relURL }}" alt="" width="83" height="202" loading="eager">
+      <img class="hero-ticket__qrcode" src="{{ "img/qrcode.png" | relURL }}" alt="QR code linking to Hits By H. Ali music" width="101" height="100" loading="eager">
+    </div>
+    <div class="hero-ticket__panel hero-ticket__panel--mid">
+      <h1 class="hero-ticket__title">H.&nbsp;ALI</h1>
+      <div class="hero-ticket__tags">
+        <span class="hero-ticket__tag">Rapper</span>
+        <span class="hero-ticket__tag">Producer</span>
+        <span class="hero-ticket__tag">DJ</span>
+      </div>
+      <img class="hero-ticket__art" src="{{ "img/sunbeams_painting_snipped.png" | relURL }}" alt="Sunbeams EP cover art concept">
+      <p class="hero-ticket__caption">&gt;Sunbeams EP Coming Soon&lt;</p>
+    </div>
+    <div class="hero-ticket__panel hero-ticket__panel--right">
+      <img class="hero-ticket__photo" src="{{ "img/hamza_speaker.jpg" | relURL }}" alt="Hamza">
+    </div>
+  </div>
 
   {{ with .Params.streaming_links }}
   <section class="home-section">
