@@ -1,0 +1,40 @@
+{{- $sidebar := false }}
+{{- if eq .Kind "home" -}}
+	{{ $sidebar = (default .Site.Params.sidebar.home .Params.sidebar) }}
+{{- else if eq .Kind "page" -}}
+	{{ $sidebar = (default .Site.Params.sidebar.single .Params.sidebar) }}
+{{- else -}}
+	{{ $sidebar = (default .Site.Params.sidebar.list .Params.sidebar) }}
+{{ end }}
+
+{{- if $sidebar -}}
+<aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}">
+	<div class="sidebar__header">
+		<h2 class="sidebar__title">Latest Work</h2>
+		<div class="sidebar__header-box"></div>
+		<div class="sidebar__nav">MUSIC &middot; BLOG &middot; POETRY</div>
+	</div>
+	<div class="sidebar__ledger">
+{{- $root := . }}
+{{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
+	{{- range $widget := . }}
+		{{- $widgetPath := printf "widgets/%s.html" $widget }}
+		{{- $widgetCached := false }}
+		{{- if isset $.Site.Params "widgets" }}
+			{{- $widgetCached = (index $.Site.Params.widgets $widget).cached }}
+		{{- end }}
+		{{- if eq $widgetCached true }}
+			{{- partialCached $widgetPath $root }}
+		{{- else }}
+			{{- partial $widgetPath $root }}
+		{{- end }}
+	{{- end }}
+{{- else }}
+	<p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
+{{- end }}
+	</div>
+	<div class="sidebar__footer">
+		<div class="sidebar__footer-box"></div>
+	</div>
+</aside>
+{{- end }}

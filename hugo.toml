@@ -4,7 +4,7 @@ title = 'Hits By Hali'
 theme = 'mainroad'
 
 [Params]
-  googleFontsLink = "local"
+  googleFontsLink = "https://fonts.googleapis.com/css2?family=Afacad:wght@400..700&family=Gochi+Hand&display=swap"
   post_meta = ["author", "date", "categories", "translations"]
   customCSS = ["css/global.css", "css/home.css", "css/gallery.css", "css/links.css", "css/posts.css", "css/mobile-nav.css", "css/booking.css"]
   customJS = ["js/filmreel.js", "js/music-carousel.js"]

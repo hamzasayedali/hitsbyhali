@@ -28,4 +28,5 @@ featured_songs:
   - "Run Out Of Time"
   - "The Person I Became"
   - "Here For You"
+  - "Close"
 ---

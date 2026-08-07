@@ -86,6 +86,228 @@ body {
   }
 }
 
+/* Sidebar "ledger" redesign: a receipt-style card. Decorative gray
+ * header/footer bookend a stack of widgets, each restyled as its own
+ * ruled, boxed section rather than trying to force every widget (varying
+ * item counts, some using <ul>, some plain <a> tags) into one shared
+ * fixed-position grid the way the original Figma mockup laid out just
+ * two sections -- this generalizes to all 5 widgets automatically. */
+@font-face {
+  font-family: "ITC Benguiat Std";
+  src: url("/fonts/benguiat/ITCBenguiatStd-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ledger tuning knobs -- edit these to adjust the sidebar's receipt-style
+ * list without hunting through every rule below. */
+.sidebar {
+  --ledger-line-color: #32709f;
+  /* Vertical column lines: distance from the ledger's own left/right edge. */
+  --ledger-col-left: 32px;
+  --ledger-col-right: 26px;
+  /* Row padding: top/bottom applies to every row (headings + items);
+     the two horizontal values are content-side and edge-side padding. */
+  --ledger-row-padding-y: 4px;
+  --ledger-row-padding-x: 14px;
+  /* Extra left padding on items only, so their text clears the left
+     column line (headings don't get this -- that's what makes them
+     read as headings, sitting flush left of the line). */
+  --ledger-item-indent: 40px;
+  /* Font sizes (headings vs. list items/tags). */
+  --ledger-title-size: clamp(1.1rem, 3vw, 1.4rem);
+  --ledger-item-size: clamp(1rem, 2.8vw, 1.2rem);
+
+  /* Decorative header/footer: "Latest Work" title, nav row, box height. */
+  --header-padding: 14px;
+  --header-title-size: clamp(2rem, 7vw, 3.4rem);
+  --header-nav-size: clamp(0.95rem, 3vw, 1.25rem);
+  --header-box-height: 33px;
+
+  position: relative;
+  /* Establishes a local stacking context so the z-index on the texture
+     overlay below is only ever compared against .sidebar's own
+     children, never anything else on the page. */
+  z-index: 0;
+  background: #fff;
+}
+
+/* Folded-paper texture over the whole sidebar card (header, ledger, and
+ * footer alike) via one ::before overlay rather than each section
+ * blending its own background -- gives one continuous texture across
+ * the card instead of three separately-cropped applications.
+ * mix-blend-mode:multiply keeps the texture's white/bright areas
+ * invisible so only the fold-crease shadows show, on top of the text
+ * and boxes beneath it, not just behind them. .sidebar needs
+ * position:relative unconditionally (not just from the sticky media
+ * query below, which only applies at >=768px) so this stays contained
+ * to the card at every screen size. z-index:1 is required -- .sidebar__
+ * ledger is also position:relative and comes later in the DOM, so
+ * without it the ledger's own background painted on top and hid the
+ * texture over that section (confirmed: it was showing over the header
+ * but not the ledger before this was added). */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("/img/folded_paper_texture.jpg");
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.sidebar__header,
+.sidebar__footer {
+  background: #dedcdf;
+  padding-left: var(--header-padding);
+  padding-right: var(--header-padding);
+  padding-top: 26px;
+  text-align: center;
+}
+
+.sidebar__title {
+  /* The gap below the glyphs is the font's ascent/descent split baked
+     into the line box itself (not extra box height to redistribute --
+     confirmed empirically the box is ~the same size as the text's own
+     line box, so align-items had nothing to work with). "Latest Work"
+     makes it obvious since it has no descenders to occupy that reserved
+     space, so the text visually sits near the top with slack below.
+     text-box-trim actually trims leading to the font's real
+     cap/alphabetic metrics -- verified via pixel measurement this pulls
+     the visible glyphs to ~1px from the box's bottom edge, vs. ~10px
+     from the top, which is what makes margin-bottom below a reliable
+     handle on the actual visual gap now. Note: must NOT be combined
+     with display:flex on this element -- tested that flex silently
+     defeats the trim (the box stayed full height, untrimmed). Text is
+     centered via .sidebar__header's text-align:center instead. */
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+  margin: 0 0 4px;
+  font-family: "ITC Benguiat Std", Didot, Georgia, serif;
+  font-weight: 700;
+  font-size: var(--header-title-size);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #32709f;
+}
+
+.sidebar__header-box,
+.sidebar__footer-box {
+  box-sizing: border-box;
+  height: var(--header-box-height);
+  margin: 0 auto;
+  border: 1px solid var(--ledger-line-color);
+}
+
+.sidebar__footer {
+  padding-bottom: 10px;
+}
+
+.sidebar__header-box {
+  margin-bottom: 4px;
+}
+
+.sidebar__nav {
+  font-family: "Afacad", sans-serif;
+  font-weight: 600;
+  font-size: var(--header-nav-size);
+  color: #32709f;
+  padding: -6px;
+}
+
+.sidebar ul.widget__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The whole widget stack shares ONE continuous ledger: one background,
+ * one pair of vertical column lines running the full height (behind
+ * headings too, not just list items), and no gaps between widgets --
+ * rather than each widget being its own independent card that restarts
+ * the grid. Headings are just another row in the same rhythm; the only
+ * thing that marks them as a heading is that they sit flush left while
+ * items are indented past the column line. */
+.sidebar__ledger {
+  position: relative;
+  background: #cbdad5;
+}
+
+.sidebar__ledger::before,
+.sidebar__ledger::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--ledger-line-color);
+}
+
+.sidebar__ledger::before {
+  left: var(--ledger-col-left);
+}
+
+.sidebar__ledger::after {
+  right: var(--ledger-col-right);
+}
+
+.sidebar .widget {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Every row -- heading or item -- gets the same border-bottom, which is
+ * what keeps the grid continuous and correct even when a row wraps to
+ * multiple lines (the line always sits at that row's true bottom edge,
+ * not a fixed repeat interval that would drift out of sync). Only the
+ * very first row in the whole ledger needs a border-top, as the single
+ * line that sits above "RECENT MUSIC" marking the top of the list. */
+.sidebar .widget__title {
+  margin: 0;
+  padding: var(--ledger-row-padding-y) var(--ledger-row-padding-x);
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-size: var(--ledger-title-size);
+  border-bottom: 1px solid var(--ledger-line-color);
+  color: #000;
+}
+
+.sidebar .widget:first-of-type .widget__title {
+  border-top: 1px solid var(--ledger-line-color);
+}
+
+.sidebar .widget__item,
+.sidebar .widget-taglist__link {
+  display: block;
+  padding: var(--ledger-row-padding-y) var(--ledger-row-padding-x) var(--ledger-row-padding-y) var(--ledger-item-indent);
+  border-bottom: 1px solid var(--ledger-line-color);
+}
+
+.sidebar .widget__link,
+.sidebar .widget-taglist__link {
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-size: var(--ledger-item-size);
+  color: #000;
+}
+
+.sidebar .widget__link:hover,
+.sidebar .widget-taglist__link:hover {
+  color: red;
+}
+
+/* Just resets the dark pill-button look (social/taglist widgets use
+ * .btn); padding/display for these are handled by the widget__item /
+ * widget-taglist__link rule above so the ledger alignment still applies. */
+.sidebar .btn {
+  background: none;
+  color: #000;
+}
+
 /* Sidebar pins in place while the main content scrolls; if the sidebar's
  * own content is taller than the viewport, it scrolls independently
  * instead of getting cut off. Only applies at the desktop breakpoint --
