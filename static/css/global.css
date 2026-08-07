@@ -131,6 +131,7 @@ body {
      children, never anything else on the page. */
   z-index: 0;
   background: #fff;
+  align-self: flex-start;
 }
 
 /* Folded-paper texture over the whole sidebar card (header, ledger, and
