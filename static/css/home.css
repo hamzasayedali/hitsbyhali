@@ -26,6 +26,12 @@
   min-height: clamp(120px, 16vw, 170px);
   margin-bottom: 1.5rem;
   overflow: hidden;
+  /* box-shadow would draw a plain rectangle behind the panels' scooped
+   * corner/seam notches (masked into each .hero-ticket__panel below),
+   * so the shadow would show through those cutouts as a straight edge
+   * instead of following the notch. drop-shadow follows the actual
+   * rendered (masked) silhouette instead. */
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
 }
 
 .hero-ticket__panel {
@@ -181,6 +187,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image: url("/img/crinkle-web.jpg");
   background-size: cover;
   background-position: center;
@@ -198,6 +205,21 @@
   margin-bottom: 2rem;
 }
 
+.home-section--music {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("/img/cardboard.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  border-radius: 0px;
+  color: #fff;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+}
+
+.home-section--music .home-section__title {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
 .home-section__title {
   font-size: 1rem;
   text-transform: uppercase;
@@ -208,9 +230,29 @@
 }
 
 .home-links {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.home-links__item--icon {
+  display: flex;
+  padding: 0;
+  background: none;
+  transition: transform 0.15s;
+}
+
+.home-links__item--icon:hover {
+  transform: scale(1.08);
+}
+
+.home-links__icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .home-shows {
@@ -306,16 +348,68 @@
   opacity: 0.8;
 }
 
+.music-card:hover .music-card__title {
+  color: red;
+}
+
+.music-card__case {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 331 / 293;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.music-card__window {
+  position: absolute;
+  left: 12.4%;
+  top: 3.1%;
+  width: 83.7%;
+  height: 93.9%;
+  overflow: hidden;
+}
+
 .music-card__thumb {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
-  border-radius: 6px;
+  /* crops out black bars baked into some hqdefault.jpg thumbnails */
+  transform: scale(1.35);
+}
+
+.music-card__case-art {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  filter: saturate(2);
 }
 
 .music-card__title {
-  font-size: 0.82rem;
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.15rem;
+  color: #000;
   margin-top: 0.4rem;
   line-height: 1.3;
+  padding: 0.5rem 0.9rem;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: color 0.15s;
+}
+
+.music-card__title--tape1 {
+  background-image: url("/img/tape1.png");
+}
+
+.music-card__title--tape2 {
+  background-image: url("/img/tape2.png");
+}
+
+.music-card__title--tape3 {
+  background-image: url("/img/tape3.png");
 }

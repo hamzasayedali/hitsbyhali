@@ -22,13 +22,8 @@
   </div>
 
   {{ with .Params.streaming_links }}
-  <section class="home-section">
-    <h3 class="home-section__title">Links to my MUSIC!</h3>
-    <div class="home-links">
-      {{ range . }}
-      <a class="home-links__item btn" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
-      {{ end }}
-    </div>
+  <section class="home-section home-section--music">
+    <h3 class="home-section__title">My songs</h3>
 
     {{ $allMusic := where $.Site.RegularPages "Section" "music" }}
     {{ $sorted := sort $allMusic "Date" "desc" }}
@@ -52,12 +47,19 @@
         <img src="{{ "img/LastButton.png" | relURL }}" alt="" width="339" height="339">
       </button>
       <div class="music-cards">
-        {{ range $featured }}
-        {{ $ytid := .Params.youtube_id }}
+        {{ $tapeOrder := shuffle (slice 1 2 3) }}
+        {{ range $i, $song := $featured }}
+        {{ $ytid := $song.Params.youtube_id }}
         {{ if $ytid }}
+        {{ $tape := index $tapeOrder (mod $i 3) }}
         <a class="music-card" href="https://www.youtube.com/watch?v={{ $ytid }}" target="_blank" rel="noopener noreferrer">
-          <img class="music-card__thumb" src="https://img.youtube.com/vi/{{ $ytid }}/hqdefault.jpg" alt="{{ .Title }}" loading="lazy">
-          <span class="music-card__title">{{ .Title }}</span>
+          <span class="music-card__case">
+            <span class="music-card__window">
+              <img class="music-card__thumb" src="https://img.youtube.com/vi/{{ $ytid }}/hqdefault.jpg" alt="{{ $song.Title }}" loading="lazy">
+            </span>
+            <img class="music-card__case-art" src="{{ "img/cd-case.png" | relURL }}" alt="" aria-hidden="true">
+          </span>
+          <span class="music-card__title music-card__title--tape{{ $tape }}">{{ $song.Title }}</span>
         </a>
         {{ end }}
         {{ end }}
@@ -67,6 +69,20 @@
       </button>
     </div>
     {{ end }}
+
+    <div class="home-links">
+      {{ range . }}
+      <a class="home-links__item home-links__item--icon" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}">
+        {{ if eq .name "Spotify" }}
+        <img class="home-links__icon" src="{{ "img/Spotify_logo_without_text.svg" | relURL }}" alt="{{ .name }}">
+        {{ else if eq .name "Apple Music" }}
+        <img class="home-links__icon" src="{{ "img/Apple_Music_icon.svg" | relURL }}" alt="{{ .name }}">
+        {{ else }}
+        {{ .name }}
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
 
   </section>
   {{ end }}

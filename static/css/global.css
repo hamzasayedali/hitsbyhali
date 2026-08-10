@@ -132,6 +132,7 @@ body {
   z-index: 0;
   background: #fff;
   align-self: flex-start;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Folded-paper texture over the whole sidebar card (header, ledger, and
