@@ -25,6 +25,7 @@ past_shows:
     ticket_url: "https://partiful.com/e/foSVghwwfPZkRalDTCsO?c=qX3MWptX"
 
 featured_songs:
+  - "Sunbeams"
   - "Run Out Of Time"
   - "The Person I Became"
   - "Here For You"

@@ -4,9 +4,6 @@ type: links
 sidebar: false
 description: All of Hali's links in one place.
 links:
-  - name: "June 26 Show @ pinkFROG Cafe"
-    url: "https://partiful.com/e/foSVghwwfPZkRalDTCsO?c=qX3MWptX"
-    category: "Shows"
   - name: "Spotify"
     url: "https://open.spotify.com/artist/5agqeoq8xnODwizxWvMHSZ?si=6emgGepdSeKJtIhpSc7YCg"
     category: "Music"
